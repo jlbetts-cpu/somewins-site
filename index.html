@@ -49,7 +49,7 @@
     --ground: #ffffff; --fill: #f5f5f7;
     --ink: #16171a; --ink-2: rgba(22,23,26,.62); --ink-3: rgba(22,23,26,.44);
     --rule: rgba(22,23,26,.08);
-    --margin: 16px; --gutter: 8px; --section: 96px;
+    --margin: 16px; --gutter: 8px; --section: 96px; --bar: 68px;
     --surface: 20px;
     --phone: min(calc(100vw - 128px), 288px);
     --t-title: 22px; --t-state: 22px; --t-lede: 22px; --t-tile: 17px;
@@ -76,9 +76,12 @@
   .ink { display: block; background: var(--ink); -webkit-mask: var(--art) center / contain no-repeat; mask: var(--art) center / contain no-repeat; }
 
   /* **The header is the app's**: the page blurs away under it with no line
-     (his word: "that blur, like the transparent effect of the header, not
-     clean apart"). A glass button either side of the crest. */
+     (the owner: "that blur, like the transparent effect of the header, not
+     clean apart"). The logo and the name on the left, one glass button on the
+     right, the way Wins opens (the owner, 2026-11-04: "logo on the left with
+     name next to it and then email button on the right"). */
   header { position: sticky; top: 0; z-index: 10; }
+  main { scroll-margin-top: var(--bar); }
   /* **A graded veil, not a band** (the owner, 2026-10-13: "the top blur of
      the header is way too strong and sharp, not like in the app experience
      at all"). It was one 20px blur under a nearly white wash with a short
@@ -93,7 +96,7 @@
   .veil i:nth-child(3) { -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); -webkit-mask: linear-gradient(to top, transparent 46%, #000 80%); mask: linear-gradient(to top, transparent 46%, #000 80%); }
   .veil i:nth-child(4) { -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); -webkit-mask: linear-gradient(to top, transparent 66%, #000 100%); mask: linear-gradient(to top, transparent 66%, #000 100%); }
   .veil i:nth-child(5) { background: linear-gradient(to bottom, rgba(255,255,255,.72) 0%, rgba(255,255,255,.46) 34%, rgba(255,255,255,.16) 66%, rgba(255,255,255,0) 100%); }
-  header .wrap { position: relative; display: flex; align-items: flex-start; justify-content: space-between; height: 104px; padding-top: 12px; }
+  header .wrap { position: relative; display: flex; align-items: center; justify-content: space-between; height: var(--bar); }
   /* Glass: clear, a little light caught on its top edge, a hairline. */
   .glass {
     width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; text-decoration: none;
@@ -106,45 +109,12 @@
   .glass:active { transform: scale(.94); }
   .glass .ink { width: 22px; height: 22px; }
 
-  /* The crest, as the app draws it (`GoalRing.swift`): a 60pt glass disc, a
-     ring of one long stroke per win round the face, a capsule under it.
-     Here a win is a part of the page read. It acts as the app's does (the
-     owner, 2026-10-13: "the pill completion thing has to act like it does
-     in the app"), and it follows the page (the same day: "the pill
-     animations need to be smooth and it should unfill when you are at the
-     top, full at the bottom"): the ink runs round stroke by stroke with
-     the scroll, back again on the way up, and at the bottom the crest
-     swells once and settles. */
-  .crest { position: absolute; left: 50%; top: 8px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; transition: opacity .4s var(--ease), transform .4s var(--ease); }
-  /* There from the first frame (the owner, 2026-10-13: "the logo pill
-     things should be present on launch"). It is the first screen's only
-     logo, so the hero does not carry a second one. */
-  button.crest { appearance: none; border: 0; background: none; padding: 0; margin: 0; cursor: pointer; color: inherit; font: inherit; }
-  button.crest:active .ring { transform: scale(.94); }
-  /* It drops from the ring, over the caption, the way a menu opens on an
-     iPhone: from its top, a little small, settling with one soft overshoot
-     (the owner: "the Some Wins should be covered when the menu drops down,
-     and make sure it's sleek and feels native"). */
-  .menu { position: absolute; left: 50%; top: 66px; z-index: 2; transform: translateX(-50%); min-width: 224px; padding: 4px; border-radius: 20px; display: grid; background: rgba(255,255,255,.82); border: 1px solid var(--rule); -webkit-backdrop-filter: blur(28px) saturate(1.8); backdrop-filter: blur(28px) saturate(1.8); box-shadow: inset 0 1px 0 rgba(255,255,255,.95); transform-origin: 50% 0; transition: opacity .18s ease, transform .34s cubic-bezier(.2, 1.3, .36, 1), visibility 0s; }
-  .menu[hidden] { display: grid; opacity: 0; transform: translateX(-50%) scale(.72); pointer-events: none; visibility: hidden; transition: opacity .14s ease, transform .18s ease, visibility 0s .18s; }
-  .menu a { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 44px; padding: 0 12px 0 16px; border-radius: 16px; text-decoration: none; font-size: 17px; }
-  .menu a + a::before { content: ""; position: absolute; left: 16px; right: 0; top: 0; height: 1px; background: var(--rule); }
-  .menu a:hover, .menu a:active { background: rgba(22,23,26,.06); }
-  .menu a:hover::before, .menu a:hover + a::before { opacity: 0; }
-  .menu a .ink { width: 20px; height: 20px; flex: none; order: 2; }
-  /* The caption steps back as the menu comes over it. */
-  .crest[aria-expanded="true"] .caption { opacity: 0; transition: opacity .12s ease; }
-  .caption { transition: opacity .2s ease .1s; }
-  .ring { position: relative; width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,.58); border: 1px solid var(--rule); -webkit-backdrop-filter: blur(16px) saturate(1.8); backdrop-filter: blur(16px) saturate(1.8); box-shadow: inset 0 1px 0 rgba(255,255,255,.95); transition: transform .16s var(--ease); }
-  .ring svg { position: absolute; inset: -1px; width: 60px; height: 60px; transform: rotate(-90deg); }
-  /* Line 4 on a 26 radius, ink or ink at 8%: the app's numbers. */
-  .ring .seg { fill: none; stroke: rgba(22,23,26,.08); stroke-width: 4; stroke-linecap: round; }
-  .ring .ink-seg { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linecap: round; }
-  .ring.full { animation: swell .64s both; }
-  @keyframes swell { 0% { transform: scale(1); animation-timing-function: cubic-bezier(.34,1.56,.64,1); } 66% { transform: scale(1.1); animation-timing-function: ease-in; } 100% { transform: scale(1); } }
-  .ring .well { position: absolute; inset: 9px; border-radius: 50%; background: var(--fill); display: grid; place-items: center; }
-  .ring .well .ink { --art: url("invite/camera.png"); width: 22px; height: 21px; }
-  .caption { height: 28px; padding: 0 12px; border-radius: 14px; display: inline-flex; align-items: center; background: rgba(255,255,255,.58); border: 1px solid var(--rule); -webkit-backdrop-filter: blur(16px) saturate(1.8); backdrop-filter: blur(16px) saturate(1.8); box-shadow: inset 0 1px 0 rgba(255,255,255,.95); font: 700 14px/1 "Zen Maru", Inter, sans-serif; letter-spacing: -.01em; }
+  /* The first screen's only logo, so the hero does not carry a second one.
+     22 is the app's header size, the logo stands where its head does, and the
+     name is the wordmark's own face (`Wordmark.swift`). */
+  .brand { display: inline-flex; align-items: center; gap: 8px; height: 44px; text-decoration: none; font: 700 22px/1 "Zen Maru", Inter, sans-serif; letter-spacing: -.01em; white-space: nowrap; transition: opacity .16s ease; }
+  .brand:active { opacity: .6; }
+  .brand .ink { --art: url("invite/camera.png"); flex: none; width: 32px; height: 30px; }
 
   /* The one filled button: the app's primary capsule, ink on the light page. */
   .button {
@@ -184,11 +154,10 @@
 
   /* The hero: one screen, the waitlist and nothing else, with the trailer and
      the features waiting under it (the owner, 2026-11-03: "the single screen
-     like up top and then the features if you scroll more down"). The crest
-     above is the logo, as it stays there from the first frame. The line is
-     the app's own (`Tagline.line`) and it is small on purpose (the same day:
+     like up top and then the features if you scroll more down"). The header
+     carries the logo. The line is the app's own (`Tagline.line`) and it is small on purpose (the same day:
      "the big text doesnt really fit the apps luxury premium layer"). */
-  .hero { position: relative; min-height: calc(100vh - 104px); min-height: calc(100svh - 104px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 0; padding-bottom: 72px; text-align: center; }
+  .hero { position: relative; min-height: calc(100vh - var(--bar)); min-height: calc(100svh - var(--bar)); display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 0; padding-bottom: 72px; text-align: center; }
   h1 { margin: 0 auto; max-width: 24ch; font-weight: 600; font-size: var(--t-lede); line-height: 1.28; letter-spacing: -.02em; }
   /* The one hint that there is more below. */
   .more { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 4px; height: 44px; padding: 0 12px; color: var(--ink-2); font-size: 15px; text-decoration: none; white-space: nowrap; transition: color .16s ease; }
@@ -196,7 +165,7 @@
   .more svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 
   /* The trailer, on the page's own white, in a surface. */
-  .film { scroll-margin-top: 120px; position: relative; margin: 0 auto; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--surface); overflow: hidden; background: var(--fill); }
+  .film { scroll-margin-top: 84px; position: relative; margin: 0 auto; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--surface); overflow: hidden; background: var(--fill); }
   .film.tall { aspect-ratio: 9 / 16; max-width: 360px; }
   /* Its still, under the player from the first paint: the script sets the
      same picture as the video's poster a moment later, and until then the
@@ -277,7 +246,7 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .js .rise { opacity: 1; transform: none; transition: none; }
-    .button, .glass, .ring, .ring .read, .crest, .menu, .more, .state span { transition: none; }
+    .button, .glass, .brand, .more, .state span { transition: none; }
   }
 </style>
 </head>
@@ -285,26 +254,7 @@
   <header id="bar">
     <div class="veil" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="wrap">
-      <a class="glass" href="#day" aria-label="How it works"><span class="ink" style="--art:url('site/icons/house.svg')" aria-hidden="true"></span></a>
-      <button type="button" class="crest" id="crest" aria-label="Some Wins, menu" aria-expanded="false" aria-controls="menu">
-        <span class="ring" id="ring" aria-hidden="true">
-          <svg viewBox="0 0 60 60"></svg>
-          <span class="well"><span class="ink"></span></span>
-        </span>
-        <span class="caption">Some Wins</span>
-      </button>
-      <!-- The crest opens the way round the page (the owner: "make the
-           middle logo do something when you click it, like open a menu ...
-           maybe like navigation"). The app's own block menu: glass, an
-           icon and a word a row. -->
-      <nav class="menu" id="menu" hidden>
-        <!-- No row for the trailer since it leads the page: the first row
-             already goes there, and two rows to one place is one too many. -->
-        <a href="#top"><span class="ink" style="--art:url('invite/camera.png')"></span>Some Wins</a>
-        <a href="#day"><span class="ink" style="--art:url('site/icons/house.svg')"></span>Your day</a>
-        <a href="#crews"><span class="ink" style="--art:url('site/icons/send.svg')"></span>Crews</a>
-        <a href="#waitlist"><span class="ink" style="--art:url('site/icons/plus.svg')"></span>Join the waitlist</a>
-      </nav>
+      <a class="brand" href="#top"><span class="ink" aria-hidden="true"></span>Some Wins</a>
       <a class="glass" href="#waitlist" aria-label="Join the waitlist">
         <span class="ink" style="--art:url('site/icons/mail.svg')" aria-hidden="true"></span>
       </a>
@@ -441,54 +391,6 @@
     var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var canWatch = "IntersectionObserver" in window;
 
-    // The ring: the app's own strokes (a gap of 1.8% of the ring either side
-    // of each), inked round by how far down the page you are: empty at the
-    // top, full at the bottom, and back again on the way up. It is drawn
-    // once a frame from where the page is, eased toward it, so a flick of
-    // the wheel is a sweep and never a jump.
-    var ring = document.getElementById("ring"), strokes = ring.querySelector("svg");
-    var count = 5, gap = 0.018, span = 1 / count, long = span - 2 * gap;
-    function stroke(kind, i) {
-      var c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-      c.setAttribute("class", kind);
-      c.setAttribute("cx", 30); c.setAttribute("cy", 30); c.setAttribute("r", 26);
-      c.setAttribute("pathLength", 1);
-      c.setAttribute("stroke-dasharray", long.toFixed(4) + " 1");
-      c.setAttribute("stroke-dashoffset", (-(i * span + gap)).toFixed(4));
-      strokes.appendChild(c);
-      return c;
-    }
-    var inks = [];
-    for (var n = 0; n < count; n++) stroke("seg", n);
-    for (var m = 0; m < count; m++) inks.push(stroke("ink-seg", m));
-    var shown = -1, wanted = 0, running = false;
-    function draw(p) {
-      inks.forEach(function (c, i) {
-        var part = Math.min(1, Math.max(0, p * count - i));
-        // A round cap makes a dot of a stroke with no length: none, not a dot.
-        c.style.opacity = part > 0.002 ? 1 : 0;
-        c.setAttribute("stroke-dasharray", (part * long).toFixed(4) + " 1");
-      });
-      // The swell, each time the bottom is reached.
-      if (p >= 0.999 && shown < 0.999 && shown >= 0 && !still) ring.classList.add("full");
-      if (p < 0.97) ring.classList.remove("full");
-      shown = p;
-    }
-    function step() {
-      var next = still || shown < 0 ? wanted : shown + (wanted - shown) * 0.22;
-      if (Math.abs(wanted - next) < 0.0015) next = wanted;
-      draw(next);
-      if (next !== wanted) requestAnimationFrame(step); else running = false;
-    }
-    function read() {
-      var room = document.documentElement.scrollHeight - window.innerHeight;
-      wanted = room > 0 ? Math.min(1, Math.max(0, window.scrollY / room)) : 0;
-      if (!running) { running = true; requestAnimationFrame(step); }
-    }
-    window.addEventListener("scroll", read, { passive: true });
-    window.addEventListener("resize", read);
-    read();
-
     // What moves with the scroll: one pass a frame, only while scrolling.
     var filmBox = document.getElementById("film");
     var state = document.getElementById("state");
@@ -567,21 +469,6 @@
       window.scrollTo(0, 0);
       if (!hero.querySelector("form").hidden) hero.querySelector("input[type=email]").focus({ preventScroll: true });
     });
-
-    // The crest opens the navigation; a choice, a press elsewhere or Escape closes it.
-    var crest = document.getElementById("crest"), menu = document.getElementById("menu");
-    function shut() { menu.hidden = true; crest.setAttribute("aria-expanded", "false"); }
-    crest.addEventListener("click", function (e) {
-      e.stopPropagation();
-      var open = menu.hidden;
-      // It opens from the caption's own top edge, so it lies exactly over it.
-      if (open) menu.style.top = (crest.offsetTop + crest.querySelector(".caption").offsetTop) + "px";
-      menu.hidden = !open;
-      crest.setAttribute("aria-expanded", String(open));
-    });
-    menu.addEventListener("click", shut);
-    document.addEventListener("click", function (e) { if (!menu.hidden && !menu.contains(e.target)) shut(); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") shut(); });
 
     // The lattice: three rows of empty cells, and the next slot on the floor.
     var lattice = document.getElementById("lattice");
