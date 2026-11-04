@@ -51,6 +51,7 @@
     --rule: rgba(22,23,26,.08);
     --margin: 16px; --gutter: 8px; --section: 96px;
     --surface: 20px;
+    --phone: min(calc(100vw - 128px), 288px);
     --t-title: 22px; --t-state: 22px; --t-lede: 22px; --t-tile: 17px;
     --ease: cubic-bezier(.2, .7, .2, 1);
   }
@@ -225,15 +226,21 @@
   .tile p { margin-top: 8px; color: var(--ink-2); max-width: 30ch; text-wrap: pretty; }
   .tile .gap { flex: 1; min-height: 32px; }
   /* A phone stands on its surface's floor, the whole screen showing, down to
-     the Lucide tab bar. */
-  .tile .phone { margin: 0 auto; width: min(76%, 288px); aspect-ratio: 1206 / 2622; border-radius: 40px 40px 0 0; overflow: hidden; background: #fff; border: 6px solid var(--ink); border-bottom: 0; }
+     the Lucide tab bar. One size on a page, whichever surface it stands on
+     (the owner, 2026-11-04: "the phones scrink weird"): `--phone` is set by the
+     narrowest surface, so none follows its own surface's width. */
+  .tile .phone { flex: none; margin: 0 auto; width: var(--phone); aspect-ratio: 1206 / 2622; border-radius: 40px 40px 0 0; overflow: hidden; background: #fff; border: 6px solid var(--ink); border-bottom: 0; }
   .tile .phone > * { width: 100%; height: auto; }
   .quiet { margin-top: 24px; text-align: center; color: var(--ink-3); font-size: 13px; line-height: 16px; }
   @media (min-width: 760px) {
     .tile { padding: 32px 32px 0; min-height: 560px; }
+  }
+  /* Side by side only where a phone still fits at a good size; a tablet or a
+     phone on its side keeps one surface a row. */
+  @media (min-width: 900px) {
+    :root { --phone: min(calc((100vw - 2 * var(--margin) - var(--gutter)) * 5 / 12 - 80px), 288px); }
     .tile.a { grid-column: span 7; }
     .tile.b { grid-column: span 5; }
-    .tile.whole { grid-column: span 12; }
   }
 
   .close { text-align: center; }
