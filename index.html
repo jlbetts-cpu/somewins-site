@@ -41,7 +41,10 @@
      nothing larger, on a desk too (2026-10-21: "smaller font like reads as
      way more premium"). Chrome is glass and hairlines; nothing casts
      a shadow. The skeleton is his Apollo page and the manner is a product
-     page's; the marks are drawn by him. */
+     page's; the logo is his drawing and every other icon is the app's Lucide
+     (`LucideIcons.swift`): his drawn style left the app on 2026-10-27 and
+     left here on 2026-11-03 (the owner: "we arent doing the doodle aestetic
+     anymore"), and the logo stays (the same day). */
   :root {
     --ground: #ffffff; --fill: #f5f5f7;
     --ink: #16171a; --ink-2: rgba(22,23,26,.62); --ink-3: rgba(22,23,26,.44);
@@ -68,7 +71,7 @@
   h1, h2, h3, .state { text-wrap: balance; }
   .wrap { width: 100%; max-width: 1232px; margin: 0 auto; padding: 0 var(--margin); }
 
-  /* His marks and drawings are one black line: a mask, filled with ink. */
+  /* The logo and the icons are each one line: a mask, filled with ink. */
   .ink { display: block; background: var(--ink); -webkit-mask: var(--art) center / contain no-repeat; mask: var(--art) center / contain no-repeat; }
 
   /* **The header is the app's**: the page blurs away under it with no line
@@ -101,7 +104,6 @@
   .glass:hover { background: rgba(255,255,255,.8); }
   .glass:active { transform: scale(.94); }
   .glass .ink { width: 22px; height: 22px; }
-  .glass svg { width: 22px; height: 22px; fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 
   /* The crest, as the app draws it (`GoalRing.swift`): a 60pt glass disc, a
      ring of one long stroke per win round the face, a capsule under it.
@@ -190,7 +192,7 @@
   /* The one hint that there is more below. */
   .more { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 4px; height: 44px; padding: 0 12px; color: var(--ink-2); font-size: 15px; text-decoration: none; white-space: nowrap; transition: color .16s ease; }
   .more:hover { color: var(--ink); }
-  .more svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .more svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 
   /* The trailer, on the page's own white, in a surface. */
   .film { scroll-margin-top: 120px; position: relative; margin: 0 auto; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--surface); overflow: hidden; background: var(--fill); }
@@ -222,22 +224,16 @@
   .tile h3 { font-weight: 600; font-size: var(--t-tile); line-height: 24px; max-width: 24ch; }
   .tile p { margin-top: 8px; color: var(--ink-2); max-width: 30ch; text-wrap: pretty; }
   .tile .gap { flex: 1; min-height: 32px; }
-  /* A phone stands on its surface's floor and runs off it. */
-  .tile .phone { margin: 0 auto; width: min(76%, 288px); aspect-ratio: 1206 / 2000; border-radius: 40px 40px 0 0; overflow: hidden; background: #fff; border: 6px solid var(--ink); border-bottom: 0; }
+  /* A phone stands on its surface's floor, the whole screen showing, down to
+     the Lucide tab bar. */
+  .tile .phone { margin: 0 auto; width: min(76%, 288px); aspect-ratio: 1206 / 2622; border-radius: 40px 40px 0 0; overflow: hidden; background: #fff; border: 6px solid var(--ink); border-bottom: 0; }
   .tile .phone > * { width: 100%; height: auto; }
-  .tile.art { align-items: center; justify-content: center; text-align: center; padding-bottom: 24px; }
-  .tile.art h3 { max-width: 20ch; }
-  .tile.art p { text-wrap: balance; }
-  .drawing { width: min(84%, 360px); aspect-ratio: 3 / 2; position: relative; margin-bottom: 16px; }
-  .drawing .ink { position: absolute; inset: 0; }
-  .drawing .crew { --art: url("invite/crew.png"); }
-  .drawing .cheer { --art: url("invite/cheer.png"); }
   .quiet { margin-top: 24px; text-align: center; color: var(--ink-3); font-size: 13px; line-height: 16px; }
   @media (min-width: 760px) {
     .tile { padding: 32px 32px 0; min-height: 560px; }
-    .tile.art { padding-bottom: 32px; }
     .tile.a { grid-column: span 7; }
     .tile.b { grid-column: span 5; }
+    .tile.whole { grid-column: span 12; }
   }
 
   .close { text-align: center; }
@@ -250,7 +246,7 @@
   .lattice { --cell: 80px; display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--cell), 1fr)); gap: 4px; -webkit-mask: linear-gradient(180deg, transparent, #000 70%); mask: linear-gradient(180deg, transparent, #000 70%); }
   .lattice i { display: block; aspect-ratio: 1; border-radius: 8px; background: var(--fill); }
   .lattice a.slot { display: grid; place-items: center; aspect-ratio: 1; border-radius: 8px; background: rgba(255,255,255,.7); border: 1px solid var(--rule); box-shadow: inset 0 1px 0 #fff; text-decoration: none; }
-  .lattice a.slot .ink { --art: url("site/tip-plus.png"); width: 24px; height: 24px; opacity: .5; transition: opacity .16s ease; }
+  .lattice a.slot .ink { --art: url("site/icons/plus.svg"); width: 24px; height: 24px; opacity: .5; transition: opacity .16s ease; }
   .lattice a.slot:hover .ink { opacity: 1; }
   footer .legal { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); color: var(--ink-3); font-size: 13px; line-height: 16px; }
   footer nav { display: flex; gap: 24px; }
@@ -282,7 +278,7 @@
   <header id="bar">
     <div class="veil" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="wrap">
-      <a class="glass" href="#day" aria-label="How it works"><span class="ink" style="--art:url('site/mark-layers.png')" aria-hidden="true"></span></a>
+      <a class="glass" href="#day" aria-label="How it works"><span class="ink" style="--art:url('site/icons/house.svg')" aria-hidden="true"></span></a>
       <button type="button" class="crest" id="crest" aria-label="Some Wins, menu" aria-expanded="false" aria-controls="menu">
         <span class="ring" id="ring" aria-hidden="true">
           <svg viewBox="0 0 60 60"></svg>
@@ -292,18 +288,18 @@
       </button>
       <!-- The crest opens the way round the page (the owner: "make the
            middle logo do something when you click it, like open a menu ...
-           maybe like navigation"). The app's own block menu: glass, a
-           drawn mark and a word a row. -->
+           maybe like navigation"). The app's own block menu: glass, an
+           icon and a word a row. -->
       <nav class="menu" id="menu" hidden>
         <!-- No row for the trailer since it leads the page: the first row
              already goes there, and two rows to one place is one too many. -->
         <a href="#top"><span class="ink" style="--art:url('invite/camera.png')"></span>Some Wins</a>
-        <a href="#day"><span class="ink" style="--art:url('site/mark-layers.png')"></span>Your day</a>
-        <a href="#crews"><span class="ink" style="--art:url('site/mark-people.png')"></span>Crews</a>
-        <a href="#waitlist"><span class="ink" style="--art:url('site/tip-plus.png')"></span>Join the waitlist</a>
+        <a href="#day"><span class="ink" style="--art:url('site/icons/house.svg')"></span>Your day</a>
+        <a href="#crews"><span class="ink" style="--art:url('site/icons/send.svg')"></span>Crews</a>
+        <a href="#waitlist"><span class="ink" style="--art:url('site/icons/plus.svg')"></span>Join the waitlist</a>
       </nav>
       <a class="glass" href="#waitlist" aria-label="Join the waitlist">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="3"/><path d="m4.5 8 7.5 5.5L19.5 8"/></svg>
+        <span class="ink" style="--art:url('site/icons/mail.svg')" aria-hidden="true"></span>
       </a>
     </div>
   </header>
@@ -322,7 +318,7 @@
         <noscript><p class="fine">This form needs JavaScript. You can also write to <a href="mailto:somewinsapp@gmail.com">somewinsapp@gmail.com</a> to join.</p></noscript>
       </div>
       <a class="more" href="#film">See how it works
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
       </a>
     </div>
 
@@ -342,33 +338,39 @@
 
     <section class="wrap" id="day">
       <div class="head rise">
-        <span class="ink glyph" style="--art:url('site/mark-layers.png')" aria-hidden="true"></span>
+        <span class="ink glyph" style="--art:url('site/icons/house.svg')" aria-hidden="true"></span>
         <h2>Anything you did counts.</h2>
       </div>
       <div class="tiles">
         <div class="tile a rise">
-          <h3>Every win is a block.</h3>
-          <p>Snap a photo or type what you did. Each one lands on today&rsquo;s tower.</p>
+          <h3>Snap it where you are.</h3>
+          <p>The camera opens right on Wins. Nothing to photograph? Tap Just Words.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><video class="loop" muted loop playsinline preload="metadata" poster="site/tower.jpg" width="480" height="1044"><source src="site/tower.mp4" type="video/mp4"></video></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/camera.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+        </div>
+        <div class="tile b rise">
+          <h3>Every win is a block.</h3>
+          <p>Each one lands on today&rsquo;s tower.</p>
+          <div class="gap"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/wins.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
         <div class="tile b rise">
           <h3>Plan it. Tick it off.</h3>
           <p>Type a plan in the bar. Tick it when it&rsquo;s done and its photo becomes a block.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/plan.jpg" alt="" width="480" height="1044" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/plan.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
-        <div class="tile b rise">
+        <div class="tile a rise">
           <h3>A month, in your own photos.</h3>
           <p>Memories builds itself out of what you logged.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><video class="loop" muted loop playsinline preload="metadata" poster="site/memories.jpg" width="480" height="1044"><source src="site/memories.mp4" type="video/mp4"></video></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/memories.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
-        <div class="tile a rise">
-          <h3>Your week, put together.</h3>
-          <p>Every Sunday the week falls back into place, block by block.</p>
+        <div class="tile whole rise">
+          <h3>Write the day down.</h3>
+          <p>A High, a Low and a Buffalo: the best part, the hard part, something random.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><video class="loop" muted loop playsinline preload="metadata" poster="site/replay.jpg" width="480" height="1044"><source src="site/replay.mp4" type="video/mp4"></video></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/journal.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
       </div>
       <p class="quiet rise">Designed with ADHD brains in mind. Nothing is ever marked missed.</p>
@@ -376,20 +378,27 @@
 
     <section class="wrap" id="crews">
       <div class="head rise">
-        <span class="ink glyph" style="--art:url('site/mark-people.png')" aria-hidden="true"></span>
+        <span class="ink glyph" style="--art:url('site/icons/send.svg')" aria-hidden="true"></span>
         <h2>One tower for the day, with a few friends.</h2>
       </div>
       <div class="tiles">
         <div class="tile b rise">
           <h3>Say it in the chat.</h3>
-          <p>A heart, a sticker cut from your own photo, a plan to do together.</p>
+          <p>Reply on a win, send a heart, or plan something to do together.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/chat.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/chat.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
-        <div class="tile a art rise">
-          <div class="drawing" aria-hidden="true"><span class="ink crew"></span><span class="ink cheer"></span></div>
+        <div class="tile a rise">
           <h3>Winning is better together.</h3>
           <p>Two to eight people. Nobody is ranked. You choose which wins a crew sees.</p>
+          <div class="gap"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/crew.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+        </div>
+        <div class="tile whole rise">
+          <h3>Tonight&rsquo;s story.</h3>
+          <p>Your friends&rsquo; best of the day, every night. Gone by morning.</p>
+          <div class="gap"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/crews.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
       </div>
     </section>

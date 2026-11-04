@@ -47,14 +47,10 @@
     -webkit-font-smoothing: antialiased; text-align: center;
   }
   .mark { display: flex; align-items: center; gap: 8px; font: 700 20px/1 "Zen Maru", ui-rounded, sans-serif; }
-  /* His drawings are one black line: shown in the page's ink, as the app does. */
+  /* The logo, his drawing, is one black line: shown in the page's ink. */
   .ink { background: var(--ink); -webkit-mask: var(--art) center / contain no-repeat; mask: var(--art) center / contain no-repeat; }
   .mark .ink { --art: url("invite/camera.png"); width: 26px; height: 25px; }
   main { flex: 1; width: 100%; max-width: 360px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 0; }
-  .art { position: relative; width: 100%; max-width: 300px; aspect-ratio: 3 / 2; margin-bottom: 20px; }
-  .art .ink { position: absolute; inset: 0; }
-  .art .crew { --art: url("invite/crew.png"); }
-  .art .cheer { --art: url("invite/cheer.png"); }
   h1 { font-size: 28px; line-height: 1.2; letter-spacing: -.02em; font-weight: 600; margin: 0 0 8px; }
   p { color: var(--ink-2); margin: 0 0 28px; }
   a { color: inherit; -webkit-tap-highlight-color: transparent; }
