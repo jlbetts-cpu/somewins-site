@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>You're invited to Some Wins</title>
-<meta name="description" content="Every win, seen by the people who matter.">
+<meta name="description" content="Take a photo of anything you got done. It stacks into your day, and your close friends see it.">
 <meta property="og:site_name" content="Some Wins">
 <meta property="og:title" content="Every win, seen by the people who matter.">
 <meta property="og:image" content="https://somewins.xyz/invite/link-cover.jpg">
@@ -68,6 +68,10 @@
     border: 1px solid var(--rule); text-decoration: none; font-weight: 600;
   }
   a.get:active { opacity: .6; }
+  /* **What Some Wins is, before anything is asked** (the owner, 2026-11-07: "I really don't want anyone to not
+     understand the point of some wins"): a real crew's tower, then the sentence. A hairline, never a shadow. */
+  .tower { display: block; width: 100%; max-width: 300px; height: auto; aspect-ratio: 571 / 566; border-radius: 20px;
+    border: 1px solid var(--rule); margin: 0 0 24px; }
   .note { font-size: 15px; color: var(--ink-3); margin: 20px 0 0; }
   #needs { margin-top: 6px; }
   [hidden] { display: none !important; }
@@ -76,8 +80,10 @@
 <body>
   <div class="mark" aria-label="Some Wins"><span class="ink" aria-hidden="true"></span>Some Wins</div>
   <main>
+    <img class="tower" id="tower" src="invite/tower.jpg" width="571" height="566"
+         alt="A crew's tower: each block is a photo of something one of them did, with their friends' reactions on it.">
     <h1 id="title">You're invited to a crew</h1>
-    <p id="line">Every win, seen by the people who matter.</p>
+    <p id="line">Take a photo of anything you got done. It stacks into your day, and your close friends see it.</p>
     <a class="open" id="open" href="somewins://join">Open in Some Wins</a>
     <a class="get" id="get" href="https://testflight.apple.com/join/ZWQ5cHv6">Get Some Wins</a>
     <p class="note" id="note">New here, or it didn't open? Get Some Wins first, then open this link again.</p>
@@ -97,6 +103,7 @@
     if (!/^crew-[0-9A-Fa-f-]{1,59}\.[A-Za-z0-9_-]{43}$/.test(invite)) {
       document.getElementById("title").textContent = "This invite is incomplete";
       document.getElementById("line").textContent = "Part of the link is missing. Ask your friend to send it again.";
+      document.getElementById("tower").hidden = true;
       open.hidden = true;
       document.getElementById("note").hidden = true;
       return;
