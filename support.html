@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Some Wins · Support</title>
+<meta name="color-scheme" content="light">
+<link rel="preload" href="site/fonts/Inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Inter, kept on the site itself (SIL Open Font License,
+     site/fonts/Inter-OFL.txt), so a page asks nobody else for anything. */
+  @font-face { font-family: "Inter"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("site/fonts/Inter-latin.woff2") format("woff2"); }
+  @font-face { font-family: "Zen Maru"; src: url("invite/ZenMaruGothic-Bold.ttf") format("truetype"); font-display: swap; }
+  :root{
+    /* White, as the home page and the invite are: this page was a cool grey
+       of its own and read as another site (seen 2026-10-13). */
+    --bg-top:#ffffff; --bg-bottom:#ffffff;
+    --ink:#16171a; --ink-2:rgba(22,23,26,.70); --ink-3:rgba(22,23,26,.55);
+    --rule:rgba(22,23,26,.10);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:0 20px 96px;
+    background:linear-gradient(180deg,var(--bg-top),var(--bg-bottom)) no-repeat;
+    background-attachment:fixed; min-height:100vh; color:var(--ink);
+    font:400 17px/1.55 Inter, -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  main{max-width:640px; margin:0 auto; padding-top:56px}
+  /* The way home: the mark and the name, as the invite page wears them. */
+  .mark{display:flex; align-items:center; gap:8px; max-width:640px; margin:0 auto; padding-top:28px; min-height:44px; box-sizing:content-box; color:var(--ink); text-decoration:none; font:700 20px/1 "Zen Maru", ui-rounded, sans-serif}
+  .mark .ink{display:block; width:26px; height:25px; background:var(--ink); -webkit-mask:url("invite/camera.png") center / contain no-repeat; mask:url("invite/camera.png") center / contain no-repeat}
+  h1{font-size:34px; line-height:1.15; letter-spacing:-.02em; margin:0 0 6px; font-weight:600}
+  .sub{color:var(--ink-3); font-size:15px; margin:0 0 44px}
+  h2{font-size:19px; letter-spacing:-.01em; margin:40px 0 8px; font-weight:600}
+  p{margin:0 0 14px; color:var(--ink-2)}
+  a{color:inherit; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px}
+  .lede{color:var(--ink); font-size:19px; line-height:1.5; margin-bottom:8px}
+  footer{margin-top:56px; padding-top:22px; border-top:1px solid var(--rule); color:var(--ink-3); font-size:14px}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/site/icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/site/icon-192.png">
+<link rel="apple-touch-icon" href="/site/icon-180.png">
+</head>
+<body>
+<main>
+  <h1>Support</h1>
+  <p class="sub">Some Wins</p>
+
+  <p class="lede">Something not working, or an idea? Write to <a href="mailto:somewinsapp@gmail.com?subject=Some%20Wins%20support">somewinsapp@gmail.com</a>. I read every one.</p>
+
+  <h2>From the app</h2>
+  <p>Settings, then Send Feedback, writes the email for you with your build number in it, which helps me find the problem faster.</p>
+
+  <h2>Some More Wins and tips</h2>
+  <p>Some More Wins and tips are bought through your Apple Account. To cancel a plan, open Settings on your iPhone, tap your name, then Subscriptions. To ask for a refund, use <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>. To bring a purchase back on a new phone, tap Restore Purchases in the app's Settings.</p>
+
+  <h2>Your wins and your data</h2>
+  <p>Your wins live on your phone and in your own iCloud. To move to a new phone, sign in to the same Apple Account and turn on iCloud for Some Wins. How everything is kept is in the <a href="privacy.html">privacy policy</a>.</p>
+
+  <h2>Crews and safety</h2>
+  <p>You can report or block anyone from their profile or from a message, and leave any crew at any time. Reports come to me.</p>
+
+  <footer>Some Wins is made by Jayden Betts. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms of Use</a></footer>
+</main>
+</body>
+</html>
