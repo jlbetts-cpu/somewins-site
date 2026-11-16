@@ -46,12 +46,15 @@
 <body>
 <main>
   <h1>Privacy</h1>
-  <p class="sub">Some Wins · last updated 15 November 2026</p>
+  <p class="sub">Some Wins · last updated 16 November 2026</p>
 
-  <p class="lede">Some Wins has no account and no server of its own. What you log stays on your device and in your own iCloud, unless you send a win to a crew.</p>
+  <p class="lede">Some Wins has no server of its own. Your account, and what you log, stay on your device and in your own iCloud, unless you send a win to a crew.</p>
 
   <h2>In short</h2>
   <p>The only things that leave your phone are: what you sync to your own iCloud, the wins you send to a crew, a report if you make one, and anonymous usage counts, only if you turn them on in Settings. Memories also shows a few ads, which Google AdMob serves (below). Some Wins never sells anything about you.</p>
+
+  <h2>Your account</h2>
+  <p>Some Wins asks you to sign in with Apple. Apple shares an account identifier and, if you allow it, your name and email (which can be a private relay address). These are kept on your iPhone and in your own iCloud, not on our servers. We use your email only if you choose Email me news about Some Wins, and you can turn that off in Settings. Delete Account in Settings removes them.</p>
 
   <h2>What Some Wins stores</h2>
   <p>Your wins: their names, sizes, colours, dates, any photo you attach, and where a photo was taken if you turn that on. Your journal, drawings, stickers and photo strips. Your name, and your head once you make it.</p>
@@ -100,13 +103,13 @@
 
   <h2>Crews</h2>
   <p>A crew is up to 8 people who share a tower for the day. Crews need iOS 26 or later. Crews are kept in Some Wins' own area of Apple's iCloud, not in anyone's personal iCloud, so a crew uses none of your iCloud storage. Some Wins runs no server of its own.</p>
-  <p>Everything in a crew is sealed on the phone that sends it, with a key only the crew's phones hold, so Some Wins cannot open what a crew holds. What it can see is that a sealed record is there: which crew it belongs to, what kind of record it is, the iCloud account identifier that wrote it, when, and how big it is.</p>
+  <p>Everything in a crew is sealed on the phone that sends it, with a key only the crew's phones hold, so Some Wins cannot open what a crew holds. What Some Wins can see, and so can anyone who reads iCloud's public area with a modified copy of the app, is that a sealed record is there: which crew it belongs to, what kind of record it is, the random id of the person a member record is for, the iCloud account identifier that wrote it, when, and how big it is. Usernames are public in the same way.</p>
   <p>A crew's invite link carries its key, so anyone with the link can join while there is room and see the crew's last two weeks. Send it only to people you mean to. Each member's phone keeps the key, with a copy in their own iCloud.</p>
   <p>Inviting friends: if you allow it, Some Wins shows your contacts on your phone so you can pick a few to invite, and writes a text you send from your own Messages. Only the names and small pictures of people you invite are kept on this phone for a week, to show them as invited.</p>
   <p>A free month for a friend is counted on your phone, from the crews it already reads: which friends sent their first win in a crew you started, kept on this phone only. Nothing new is sent anywhere for it. The App Store offer codes are read from one public iCloud record that Some Wins keeps, and only once you hold a free month.</p>
-  <p>Finding friends who are already here: if you turn on Let Friends Find You, your phone number is scrambled on your phone (a one-way hash) and that scrambled copy is kept in Some Wins' iCloud database with your profile's id, so people who have your number can ask you to be friends. Your number itself is never stored or shown. To find your friends, each contact's number is scrambled the same way on your phone and only the scrambled copies are looked up; nothing is kept about anyone who is not found. A friend request carries your name and is sealed so only the person it is for can read it. Turn it off at any time and the scrambled copy is deleted.</p>
+  <p>Finding friends who are already here: if you turn on Let Friends Find You, your phone number is scrambled on your phone (a slow one-way hash) and that scrambled copy is kept in Some Wins' iCloud database with your profile's id, so people who have your number see that you may be here, and can text you their link from their own phone. Someone who already has your number can check whether it is here; nobody can list the numbers. Your number itself is never stored or shown. To find your friends, each contact's number is scrambled the same way on your phone and only the scrambled copies are looked up; nothing is kept about anyone who is not found. Anyone can type any number, so a match only says someone may be here. Some Wins sends no friend requests of its own. Turn it off at any time and the scrambled copy is deleted.</p>
   <p>A win goes to a crew only if you tick that crew for that win. The crews you ticked last stay ticked until you change them.</p>
-  <p>When someone adds a win or reacts to yours, their phone also leaves a short note in iCloud's public area so iCloud can alert the crew. The note holds scrambled tags for the crew and the people (which only phones already in the crew can match), the win's random id, and whether it is a win or a reaction: no names, titles or photos. The phone that left the note deletes it within minutes. Your phone then reads the win from the crew and writes the notification itself.</p>
+  <p>When someone adds a win or reacts to yours, their phone also leaves a short note in iCloud's public area so iCloud can alert the crew. The note holds scrambled tags for the crew and the people, a random id, what kind of news it is (a win, a reaction, a chat line, someone joining, a streak), and a seal made with the crew's key: no names, titles or photos. The tags come from ids that are not secret; only the seal, which needs the crew's key, lets your phone name who sent it. The phone that left the note deletes it within minutes. Your phone then reads the win from the crew and writes the notification itself.</p>
 
   <h2>Tonight&#x27;s Story</h2>
   <p>If you put a win on Tonight's Story, it goes to every crew you are in, sealed the same way, for that night only: friends see it from eight in the evening, and it ends for you at nine the next morning. Your high, low and buffalo, and a page you draw for them, go with it if you add them. Friends can react or reply; a reply lands in your conversation with them. Taking a win off the story takes it back from everyone.</p>
