@@ -189,7 +189,7 @@
 
   /* The surfaces sit on a twelve-column grid. */
   .tiles { display: grid; gap: var(--gutter); grid-template-columns: repeat(12, minmax(0, 1fr)); }
-  .tile { grid-column: span 12; position: relative; overflow: hidden; background: var(--fill); border-radius: var(--surface); padding: 24px 24px 0; min-height: 480px; display: flex; flex-direction: column; }
+  .tile { grid-column: span 12; position: relative; overflow: hidden; background: var(--fill); border-radius: var(--surface); padding: 24px; min-height: 480px; display: flex; flex-direction: column; }
   .tile .glyph { width: 28px; height: 28px; margin-bottom: 12px; }
   .tile h3 { font-weight: 600; font-size: var(--t-tile); line-height: 24px; max-width: 24ch; }
   .tile p { margin-top: 8px; color: var(--ink-2); max-width: 30ch; text-wrap: pretty; }
@@ -198,11 +198,37 @@
      the Lucide tab bar. One size on a page, whichever surface it stands on
      (the owner, 2026-11-04: "the phones scrink weird"): `--phone` is set by the
      narrowest surface, so none follows its own surface's width. */
-  .tile .phone { flex: none; margin: 0 auto; width: var(--phone); aspect-ratio: 1206 / 2622; border-radius: 40px 40px 0 0; overflow: hidden; background: #fff; border: 6px solid var(--ink); border-bottom: 0; }
-  .tile .phone > * { width: 100%; height: auto; }
+  /* **The App Store's phone, not an ink outline** (the owner, 2026-11-15: the
+     phones were "a little long ... not normal phone screens", and "the phone
+     border ... kind of our aesthetic"). Measured off the approved App Store set
+     (2026-11-09): a pale cool bezel 2.4% of the phone's width, a touch deeper at
+     the foot, one hairline outside and one inside, every corner round, the whole
+     screen showing and the Dynamic Island over it. Light, no shadow: chrome
+     separates with hairlines here as it does in the app. */
+  .tile .phone {
+    --w: var(--phone);
+    position: relative; flex: none; margin: 0 auto; width: var(--w);
+    padding: calc(var(--w) * .024);
+    border-radius: calc(var(--w) * .176);
+    background: linear-gradient(180deg, #f3f4f7 0%, #eceef2 70%, #e3e6eb 100%);
+    border: 1px solid #dadce1;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
+  }
+  .tile .phone > * {
+    width: 100%; height: auto; aspect-ratio: 1206 / 2622; object-fit: cover;
+    border-radius: calc(var(--w) * .152); background: #fff;
+    outline: 1px solid rgba(22,23,26,.06); outline-offset: -1px;
+  }
+  /* The island: the simulator's screens are taken without one. */
+  .tile .phone::after {
+    content: ""; position: absolute; left: 50%; transform: translateX(-50%);
+    top: calc(var(--w) * .055); width: calc(var(--w) * .274); height: calc(var(--w) * .081);
+    border-radius: 999px; background: #000;
+  }
+
   .quiet { margin-top: 24px; text-align: center; color: var(--ink-3); font-size: 13px; line-height: 16px; }
   @media (min-width: 760px) {
-    .tile { padding: 32px 32px 0; min-height: 560px; }
+    .tile { padding: 32px; min-height: 560px; }
   }
   /* Side by side only where a phone still fits at a good size; a tablet or a
      phone on its side keeps one surface a row. */
@@ -213,8 +239,7 @@
   }
 
   /* A surface with words and no phone: the same tile, as tall as what it says. */
-  .tile.short { min-height: 0; padding-bottom: 24px; }
-  @media (min-width: 760px) { .tile.short { padding-bottom: 32px; } }
+  .tile.short { min-height: 0; }
   @media (min-width: 900px) { #more .tile.a { grid-column: span 7; } #more .tile.b { grid-column: span 5; } }
   .tile.short p { max-width: 44ch; }
 
