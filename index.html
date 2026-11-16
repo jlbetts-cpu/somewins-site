@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Some Wins</title>
-<meta name="description" content="Every win, seen by the people who matter. A daily photo journal for you and your crew.">
+<meta name="description" content="Every win, seen by the people who matter. A ta-da list for ADHD brains, kept with a few close friends.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Some Wins">
 <meta property="og:title" content="Some Wins">
@@ -212,6 +212,17 @@
     .tile.b { grid-column: span 5; }
   }
 
+  /* A surface with words and no phone: the same tile, as tall as what it says. */
+  .tile.short { min-height: 0; padding-bottom: 24px; }
+  @media (min-width: 760px) { .tile.short { padding-bottom: 32px; } }
+  @media (min-width: 900px) { #more .tile.a { grid-column: span 7; } #more .tile.b { grid-column: span 5; } }
+  .tile.short p { max-width: 44ch; }
+
+  /* His note: the opening's words, a quiet column with his name above it. */
+  .note { max-width: 34rem; margin: 0 auto; text-align: center; }
+  .note .kicker { color: var(--ink-3); font-size: 15px; line-height: 20px; margin-bottom: 12px; }
+  .note .words { margin-top: 16px; color: var(--ink-2); text-wrap: pretty; }
+
   .close { text-align: center; }
 
   /* **The tower's lattice is the page's floor** ("hints to the app like the
@@ -290,7 +301,7 @@
     </section>
 
     <section class="wrap">
-      <p class="state rise" id="state">A daily photo journal for you and your crew.</p>
+      <p class="state rise" id="state">A ta-da list for ADHD brains, kept with a few close friends.</p>
     </section>
 
     <section class="wrap" id="day">
@@ -300,62 +311,89 @@
       </div>
       <div class="tiles">
         <div class="tile a rise">
-          <h3>Snap it where you are.</h3>
-          <p>The camera opens right on Wins. Nothing to photograph? Tap Just Words.</p>
-          <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/camera.jpg" alt="" width="603" height="1311" loading="lazy"></div>
-        </div>
-        <div class="tile b rise">
-          <h3>Every win is a block.</h3>
-          <p>Each one lands on today&rsquo;s tower.</p>
+          <h3>Snap a win as it happens.</h3>
+          <p>Each one lands on today&rsquo;s tower. Nothing to photograph? Write it in.</p>
           <div class="gap"></div>
           <div class="phone" aria-hidden="true"><img src="site/screens/wins.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
         <div class="tile b rise">
-          <h3>Plan it. Tick it off.</h3>
-          <p>Type a plan in the bar. Tick it when it&rsquo;s done and its photo becomes a block.</p>
+          <h3>Brain dump the day.</h3>
+          <p>Type it in the bar, times and all. Tick it off when it&rsquo;s done.</p>
           <div class="gap"></div>
           <div class="phone" aria-hidden="true"><img src="site/screens/plan.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
+        <div class="tile b rise">
+          <h3>Dopamine, in a photo strip.</h3>
+          <p>Reach your goal and the day prints, signed at the foot.</p>
+          <div class="gap"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/strip.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+        </div>
         <div class="tile a rise">
-          <h3>A month, in your own photos.</h3>
-          <p>Memories builds itself out of what you logged.</p>
+          <h3>Every day, kept.</h3>
+          <p>Memories builds itself out of what you logged, with your journal beside it.</p>
           <div class="gap"></div>
           <div class="phone" aria-hidden="true"><img src="site/screens/memories.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
         <div class="tile whole rise">
           <h3>Write the day down.</h3>
-          <p>A High, a Low and a Buffalo: the best part, the hard part, something random.</p>
+          <p>A High, a Low and a Buffalo, then anything else, with photos and stickers among the words.</p>
           <div class="gap"></div>
           <div class="phone" aria-hidden="true"><img src="site/screens/journal.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
       </div>
-      <p class="quiet rise">Designed with ADHD brains in mind. Nothing is ever marked missed.</p>
+      <p class="quiet rise">Nothing is ever marked missed.</p>
     </section>
 
     <section class="wrap" id="crews">
       <div class="head rise">
         <span class="ink glyph" style="--art:url('site/icons/send.svg')" aria-hidden="true"></span>
-        <h2>One tower for the day, with a few friends.</h2>
+        <h2>Close friends, no feed.</h2>
       </div>
       <div class="tiles">
         <div class="tile b rise">
-          <h3>Say it in the chat.</h3>
-          <p>Reply on a win, send a heart, or plan something to do together.</p>
-          <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/chat.jpg" alt="" width="603" height="1311" loading="lazy"></div>
-        </div>
-        <div class="tile a rise">
-          <h3>Winning is better together.</h3>
-          <p>Two to eight people. Nobody is ranked. You choose which wins a crew sees.</p>
+          <h3>One tower for the day, together.</h3>
+          <p>Your crew&rsquo;s wins in one place. Reply, react, or play the week back.</p>
           <div class="gap"></div>
           <div class="phone" aria-hidden="true"><img src="site/screens/crew.jpg" alt="" width="603" height="1311" loading="lazy"></div>
         </div>
-        <div class="tile whole rise">
-          <h3>Tonight&rsquo;s story.</h3>
-          <p>Your friends&rsquo; best of the day, every night. Gone by morning.</p>
+        <div class="tile a rise">
+          <h3>Small, private crews.</h3>
+          <p>Two to eight people. Nobody is ranked. You choose which wins a crew sees, and tonight&rsquo;s story is gone by morning.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/crews.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/social.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+        </div>
+        <div class="tile whole rise">
+          <h3>Send a print.</h3>
+          <p>Any win becomes a print to share. The photo and the wordmark, nothing else.</p>
+          <div class="gap"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/print.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The founder note, word for word the opening's (`OpeningWhy.makerNote`): the
+         social proof beat, his pick (2026-11-15). -->
+    <section class="wrap" id="why">
+      <div class="note rise">
+        <p class="kicker">A note from Jayden</p>
+        <h2>Made for ADHD brains.</h2>
+        <p class="words">ADHD brains lose the good parts of a day fast. Writing them down keeps you grounded, but alone it&rsquo;s easy to drop. So I made reflection something you do with your friends. That was my number one priority.</p>
+      </div>
+    </section>
+
+    <!-- What is free and what is more, in the app's own words (`PlusPaywall`, `TicketCopy`,
+         `OpeningFriends.referralLine`). No prices: the App Store shows each country's. -->
+    <section class="wrap" id="more">
+      <div class="tiles">
+        <div class="tile a short rise">
+          <span class="ink glyph" style="--art:url('site/icons/sparkles.svg')" aria-hidden="true"></span>
+          <h3>Free to use. Some More Wins if you want more.</h3>
+          <p>Logging, the tower, the plan, the journal, crews and stories are free. Some More Wins adds every outfit for your Somebody, your wins on a map, a shared plan and journal, more app icons and the rest. A free week first, then monthly, yearly or once.</p>
+        </div>
+        <div class="tile b short rise">
+          <span class="ink glyph" style="--art:url('site/icons/gift.svg')" aria-hidden="true"></span>
+          <h3>A free month for you both.</h3>
+          <p>When a close friend logs their first win with you, you each get a month free. Up to three months.</p>
         </div>
       </div>
     </section>
