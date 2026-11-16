@@ -75,10 +75,15 @@
   .note { font-size: 15px; color: var(--ink-3); margin: 20px 0 0; }
   #needs { margin-top: 6px; }
   [hidden] { display: none !important; }
+  /* **The app's own wordmark** (the owner, 2026-11-16: "the site doesnt have the updated wordmark"): Geist 690,
+     "Some Wins", the i's dot a square block (Strata docs/brand/wordmark/build_final.py), drawn in the page's ink. Its
+     box is the ink's own, about three quarters of the type size it stands for. */
+  .wm{display:inline-block; flex:none; height:.75em; aspect-ratio:5092.1/754.5; background:currentColor;
+      -webkit-mask:url("site/wordmark.svg") center / contain no-repeat; mask:url("site/wordmark.svg") center / contain no-repeat}
 </style>
 </head>
 <body>
-  <div class="mark" aria-label="Some Wins"><span class="ink" aria-hidden="true"></span>Some Wins</div>
+  <div class="mark"><span class="ink" aria-hidden="true"></span><span class="wm" role="img" aria-label="Some Wins"></span></div>
   <main>
     <img class="tower" id="tower" src="invite/tower.jpg" width="571" height="566"
          alt="A crew's tower: each block is a photo of something one of them did, with their friends' reactions on it.">

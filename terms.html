@@ -37,6 +37,11 @@
   a{color:inherit; text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px}
   .lede{color:var(--ink); font-size:19px; line-height:1.5; margin-bottom:8px}
   footer{margin-top:56px; padding-top:22px; border-top:1px solid var(--rule); color:var(--ink-3); font-size:14px}
+  /* **The app's own wordmark** (the owner, 2026-11-16: "the site doesnt have the updated wordmark"): Geist 690,
+     "Some Wins", the i's dot a square block (Strata docs/brand/wordmark/build_final.py), drawn in the page's ink. Its
+     box is the ink's own, about three quarters of the type size it stands for. */
+  .wm{display:inline-block; flex:none; height:.75em; aspect-ratio:5092.1/754.5; background:currentColor;
+      -webkit-mask:url("site/wordmark.svg") center / contain no-repeat; mask:url("site/wordmark.svg") center / contain no-repeat}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/site/icon-32.png">
@@ -44,7 +49,7 @@
 <link rel="apple-touch-icon" href="/site/icon-180.png">
 </head>
 <body>
-<a class="mark" href="/" aria-label="Some Wins, home"><span class="ink" aria-hidden="true"></span>Some Wins</a>
+<a class="mark" href="/" aria-label="Some Wins, home"><span class="ink" aria-hidden="true"></span><span class="wm" aria-hidden="true"></span></a>
 <main>
   <h1>Terms of Use</h1>
   <p class="sub">Some Wins · last updated 15 November 2026</p>

@@ -288,13 +288,18 @@
     .js .rise { opacity: 1; transform: none; transition: none; }
     .button, .glass, .brand, .more, .state span { transition: none; }
   }
+  /* **The app's own wordmark** (the owner, 2026-11-16: "the site doesnt have the updated wordmark"): Geist 690,
+     "Some Wins", the i's dot a square block (Strata docs/brand/wordmark/build_final.py), drawn in the page's ink. Its
+     box is the ink's own, about three quarters of the type size it stands for. */
+  .wm{display:inline-block; flex:none; height:.75em; aspect-ratio:5092.1/754.5; background:currentColor;
+      -webkit-mask:url("site/wordmark.svg") center / contain no-repeat; mask:url("site/wordmark.svg") center / contain no-repeat}
 </style>
 </head>
 <body>
   <header id="bar">
     <div class="veil" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="wrap">
-      <a class="brand" href="#top"><span class="ink" aria-hidden="true"></span>Some Wins</a>
+      <a class="brand" href="#top" aria-label="Some Wins"><span class="ink" aria-hidden="true"></span><span class="wm" role="img" aria-label="Some Wins"></span></a>
       <a class="glass" href="#waitlist" aria-label="Join the waitlist">
         <span class="ink" style="--art:url('site/icons/mail.svg')" aria-hidden="true"></span>
       </a>
@@ -465,7 +470,7 @@
     <div class="wrap">
       <div class="lattice" id="lattice" aria-hidden="true"></div>
       <div class="legal">
-        <span>Some Wins</span>
+        <span class="wm" role="img" aria-label="Some Wins"></span>
         <nav>
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
