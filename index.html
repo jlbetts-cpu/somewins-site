@@ -247,6 +247,10 @@
   .note { max-width: 34rem; margin: 0 auto; text-align: center; }
   .note .kicker { color: var(--ink-3); font-size: 15px; line-height: 20px; margin-bottom: 12px; }
   .note .words { margin-top: 16px; color: var(--ink-2); text-wrap: pretty; }
+  .tiles.why { margin-top: 32px; }
+  @media (min-width: 900px) { .tile.third { grid-column: span 4; } }
+  .tile .cite { margin-top: 12px; color: var(--ink-3); font-size: 13px; line-height: 16px; }
+  .tile .cite a { text-underline-offset: 2px; }
 
   .close { text-align: center; }
 
@@ -339,31 +343,31 @@
           <h3>Snap a win as it happens.</h3>
           <p>Each one lands on today&rsquo;s tower. Nothing to photograph? Write it in.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/wins.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/wins.jpg" alt="" width="603" height="1310" loading="lazy"></div>
         </div>
         <div class="tile b rise">
           <h3>Brain dump the day.</h3>
           <p>Type it in the bar, times and all. Tick it off when it&rsquo;s done.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/plan.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/plan.jpg" alt="" width="603" height="1310" loading="lazy"></div>
         </div>
         <div class="tile b rise">
           <h3>Dopamine, in a photo strip.</h3>
           <p>Reach your goal and the day prints, signed at the foot.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/strip.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/strip.jpg" alt="" width="603" height="1310" loading="lazy"></div>
         </div>
         <div class="tile a rise">
           <h3>Every day, kept.</h3>
           <p>Memories builds itself out of what you logged, with your journal beside it.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/memories.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/memories.jpg" alt="" width="603" height="1310" loading="lazy"></div>
         </div>
         <div class="tile whole rise">
           <h3>Write the day down.</h3>
           <p>A High, a Low and a Buffalo, then anything else, with photos and stickers among the words.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/journal.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/journal.jpg" alt="" width="603" height="1310" loading="lazy"></div>
         </div>
       </div>
       <p class="quiet rise">Nothing is ever marked missed.</p>
@@ -379,30 +383,50 @@
           <h3>One tower for the day, together.</h3>
           <p>Your crew&rsquo;s wins in one place. Reply, react, or play the week back.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/crew.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/crew.jpg" alt="" width="603" height="1310" loading="lazy"></div>
         </div>
         <div class="tile a rise">
           <h3>Small, private crews.</h3>
           <p>Two to eight people. Nobody is ranked. You choose which wins a crew sees, and tonight&rsquo;s story is gone by morning.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/social.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/social.jpg" alt="" width="603" height="1310" loading="lazy"></div>
         </div>
         <div class="tile whole rise">
           <h3>Send a print.</h3>
           <p>Any win becomes a print to share. The photo and the wordmark, nothing else.</p>
           <div class="gap"></div>
-          <div class="phone" aria-hidden="true"><img src="site/screens/print.jpg" alt="" width="603" height="1311" loading="lazy"></div>
+          <div class="phone" aria-hidden="true"><img src="site/screens/print.jpg" alt="" width="603" height="1310" loading="lazy"></div>
         </div>
       </div>
     </section>
 
-    <!-- The founder note, word for word the opening's (`OpeningWhy.makerNote`): the
-         social proof beat, his pick (2026-11-15). -->
+    <!-- Why it works, word for word the opening's (`OpeningWhy.research`, 2026-11-15): three parts of the app, each
+         with what research found and where. Said as findings, never that the app treats anything. -->
     <section class="wrap" id="why">
       <div class="note rise">
-        <p class="kicker">A note from Jayden</p>
+        <p class="kicker">Why it works</p>
         <h2>Made for ADHD brains.</h2>
-        <p class="words">ADHD brains lose the good parts of a day fast. Writing them down keeps you grounded, but alone it&rsquo;s easy to drop. So I made reflection something you do with your friends. That was my number one priority.</p>
+        <p class="words">Each part is built on what research says about ADHD brains.</p>
+      </div>
+      <div class="tiles why">
+        <div class="tile short third rise">
+          <span class="ink glyph" style="--art:url('site/icons/stack.svg')" aria-hidden="true"></span>
+          <h3>Your tower pays off now.</h3>
+          <p>In 22 studies of 1,181 kids with ADHD, a reward now was preferred over one later.</p>
+          <p class="cite"><a href="https://doi.org/10.1016/j.cpr.2004.11.001">Luman et al., 2005</a></p>
+        </div>
+        <div class="tile short third rise">
+          <span class="ink glyph" style="--art:url('site/icons/camera.svg')" aria-hidden="true"></span>
+          <h3>Your photos make it count.</h3>
+          <p>In 9 experiments, taking photos made good moments more enjoyable.</p>
+          <p class="cite"><a href="https://doi.org/10.1037/pspa0000055">Diehl et al., 2016</a></p>
+        </div>
+        <div class="tile short third rise">
+          <span class="ink glyph" style="--art:url('site/icons/users.svg')" aria-hidden="true"></span>
+          <h3>Your friends make it bigger.</h3>
+          <p>In 2 studies, telling someone about a good moment lifted the whole day&rsquo;s mood.</p>
+          <p class="cite"><a href="https://doi.org/10.1037/0022-3514.87.2.228">Gable et al., 2004</a></p>
+        </div>
       </div>
     </section>
 
