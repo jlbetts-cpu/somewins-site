@@ -20,6 +20,10 @@ Until step 7 is done, the form tells visitors their signup didn't go through.
 
 Edit it, then choose **Deploy → Manage deployments**, edit the deployment, and pick **New version**. This keeps the same URL.
 
+## The app's Product Updates switch
+
+Since 2026-11-16 the app sends here too. Someone who turns on Product Updates after signing in is added with Source "app"; turning it off or deleting the account sends `unsubscribe` and removes their row. The site's own signups say "site". Only someone who switched it on is ever sent, and only their email.
+
 ## When the app is out
 
 The list is yours to export from the sheet. To go back to a download button, restore the App Store badge from git. `site/app-store-badge.svg` is still in the site.
